@@ -35,21 +35,6 @@ public class Simulator : MonoBehaviour
     }
     private Context context = new Context();
 
-    void Awake()
-    {
-        // TODO: instant code
-        if (context.PathPoints.PathPointList.Count <= 0)
-        {
-            var gos = GameObject.FindGameObjectsWithTag("Path");
-            foreach (var go in gos)
-            {
-                var pp = go.GetComponent<PathPoint>();
-                context.PathPoints.PathPointList.Add(pp);
-                context.PathPoints.PathPointDict[pp.pathId] = pp;
-            }
-        }
-    }
-
     public void SpawnAgent()
     {
         var newAgent = context.Agents.SpawnAgent();
